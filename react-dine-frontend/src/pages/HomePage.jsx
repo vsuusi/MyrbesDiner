@@ -1,6 +1,6 @@
 import Dishes from "../components/Dishes";
 
-const Home = () => {
+const HomePage = () => {
     return (
         <>
             <Dishes/>
@@ -8,4 +8,4 @@ const Home = () => {
     )
 };
 
-export default Home;
+export default HomePage;

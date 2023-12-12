@@ -1,0 +1,7 @@
+.cartItemDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: blue;
+    margin: 5px;
+}
