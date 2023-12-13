@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './CartSheet.css'
  
 const CartSheet = () => {
-    const { cartItems, emptyCart, cartTotalPrice } = useCart();
+    const { removeFromCart, addToCart, cartItems, emptyCart, cartTotalPrice } = useCart();
 
     return (
     <>
@@ -19,12 +19,12 @@ const CartSheet = () => {
                         <p>{item.price}€</p>
                     </div>
                     <div className="countButtons">
-                        <button>+</button>
-                        <button>-</button>
+                        <button onClick={() => addToCart(item)}>+</button>
+                        <button onClick={() => removeFromCart(item)}>-</button>
                     </div>
                 </li>
                 ))}
-                <h4>Total: {cartTotalPrice()}</h4>
+                <h4>Total: {cartTotalPrice().toFixed(2)}€</h4>
             </ul>}
             <div>
                 <Link to="/">

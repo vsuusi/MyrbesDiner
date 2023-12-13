@@ -1,14 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-// Create a context to hold the state related to the shopping cart
+
 const CartContext = createContext();
 
-// Custom hook to easily access the cart context in components
+// custom hook to easily access the cart context in components
 export const useCart = () => {
     return useContext(CartContext);
 };
 
-// CartProvider component that wraps the entire application
+// cartProvider component that wraps the entire application
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
@@ -16,7 +16,6 @@ export const CartProvider = ({ children }) => {
     const existingItemIndex = cartItems.findIndex((item) => item.id === dish.id);
 
     if (existingItemIndex !== -1) {
-      // If the dish is already in the cart, update the quantity
       setCartItems((prevItems) =>
         prevItems.map((item, index) =>
           index === existingItemIndex
@@ -25,10 +24,26 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
-      // If the dish is not in the cart, add it with a quantity of 1
       setCartItems((prevItems) => [...prevItems, { ...dish, quantity: 1 }]);
     }
   };
+
+  const removeFromCart = (dish) => {
+    const isItemInCart = cartItems.find((Item) => Item.id === dish.id);
+
+    if (isItemInCart.quantity === 1) {
+      setCartItems(cartItems.filter((cartItem) => cartItem.id !== dish.id));
+    } 
+    else {
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.id === dish.id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        )
+      );
+    }
+  }
 
   const emptyCart = () => {
     setCartItems([]);
@@ -48,7 +63,6 @@ export const CartProvider = ({ children }) => {
     return totalItems;
   };
 
-  
 
   useEffect(() => {
     console.log(cartItems); // This will log the updated state after the component re-renders
@@ -61,6 +75,7 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider value={{
       cartItems,
       addToCart,
+      removeFromCart,
       emptyCart,
       cartTotalPrice,
       cartTotalItems, }}

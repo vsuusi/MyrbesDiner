@@ -6,11 +6,7 @@ import { useCart } from "../context/CartContext";
 const Dishes = () => {
     const [dishes, setDishes] = useState([]);
     const [loading, setLoading] = useState([true]);
-    const { cartItems, addToCart } = useCart();
-
-    const addToCartHanlder = (dish) => {
-        addToCart(dish);
-    }
+    const { addToCart } = useCart();
 
     useEffect(() => {
         fetch("http://localhost:5000/api/dishes", {
@@ -45,7 +41,7 @@ const Dishes = () => {
                             <h3>{dish.name}</h3>
                             <p>{dish.description}</p>
                             <h4>{dish.price}€</h4>
-                            <button onClick={() => addToCartHanlder(dish)}>+ Add to Cart</button>
+                            <button onClick={() => addToCart(dish)}>+ Add to Cart</button>
                         </div>
                     </div>
                 </li>
