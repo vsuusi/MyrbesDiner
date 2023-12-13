@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <div className="headercontainer">
             <Link to={`/`}>
-                <h1> React Diner </h1>
+                <h1> Myrbes Diner </h1>
             </Link>
             <div className="cartandtotal">
                 <Link to={`/cart`}>

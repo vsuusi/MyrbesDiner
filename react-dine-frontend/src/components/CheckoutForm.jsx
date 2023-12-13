@@ -1,14 +1,74 @@
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
+import { useCart } from "../context/CartContext";
+import { useState } from "react";
+import OrderModal from "../components/OrderModal";
 import './CheckoutForm.css'
 
 const CheckoutForm = () => {
-    const { register, handleSubmit, watch, formState: { errors },} = useForm();
+    const { cartItems, cartTotalPrice } = useCart();
+    const { register, handleSubmit, formState: { errors },} = useForm();
+    const [modalState, setModalState] = useState(false);
 
-    const onSubmit = (data) => {
-        console.log(data);
-    }
+    const onSubmit = async (data) => {
+        try {
+            const orderData = {
+                order: {
+                    customer: {
+                        name: data.firstname + ' ' + data.lastname,
+                        email: data.email,
+                        street: data.address,
+                        'postal-code': data.postalcode,
+                        city: data.city
+                    },
+                items: [
+                    {
+                        id: cartItems.id,
+                        quantity: cartItems.quantity
+                    },
+                ]
+                }
+            }
+
+            const response = await fetch("http://localhost:5000/api/orders", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(orderData),
+            });
+        
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const responseData = await response.json();
+            console.log("Order submitted successfully:", responseData);
+        
+            } catch (error) {
+            console.error("Error submitting order:", error.message);
+        }
+      };
 
     return (
+        <div className="container">
+        <ul>
+            <div className="checkoutsummary">
+                {cartItems.map((item, index) => (
+                    <li key={index}>
+                    <div>
+                        <h4>{item.name}</h4>
+                        <p>{item.quantity}</p>
+                        <p>{item.price}€</p>
+                    </div>
+                </li>
+                ))}
+                <h4>Total: {cartTotalPrice().toFixed(2)}€</h4>
+                <Link to="/cart">
+                    <button>Edit order</button>
+                </Link>
+            </div>
+        </ul>
+
         <div className="checkoutform">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
@@ -26,10 +86,13 @@ const CheckoutForm = () => {
                     )}
                 </div>
                 <div className="form-control">
-                    <label>Address:</label>
-                    <input {...register("address",{ required: true})}/>
-                    {errors.address && errors.address.type === "required" && (
-                        <p className="errorMsg"> Address is required!</p>
+                    <label>Email:</label>
+                    <input type="text" {...register("email",{ required: true, pattern: /@/})}/>
+                    {errors.email && errors.email.type === "required" && (
+                        <p className="errorMsg"> Email is required!</p>
+                    )}
+                    {errors.email && errors.email.type === "pattern" && (
+                    <p className="errorMsg">Email is not valid.</p>
                     )}
                 </div>
                 <div className="form-control">
@@ -39,6 +102,27 @@ const CheckoutForm = () => {
                         <p className="errorMsg"> Phonenumber is required!</p>
                     )}
                 </div>
+                <div className="form-control">
+                    <label>Address:</label>
+                    <input {...register("address",{ required: true})}/>
+                    {errors.address && errors.address.type === "required" && (
+                        <p className="errorMsg"> Address is required!</p>
+                    )}
+                </div>
+                <div className="form-control">
+                    <label>City:</label>
+                    <input type="text" {...register("city",{ required: true})}/>
+                    {errors.city && errors.city.type === "required" && (
+                        <p className="errorMsg"> City is required!</p>
+                    )}
+                </div>
+                <div className="form-control">
+                    <label>Postal Code:</label>
+                    <input type="text" {...register("postalcode",{ required: true})}/>
+                    {errors.postalcode && errors.postalcode.type === "required" && (
+                        <p className="errorMsg"> Postalcode is required!</p>
+                    )}
+                </div>
                 <div className="form-control-spec">
                     <label>Special instructions:</label>
                     <textarea type="text" rows="4" {...register("specialinstructions",{ maxLength: 150})}/>
@@ -46,12 +130,12 @@ const CheckoutForm = () => {
                         <p className="errorMsg"> Must be under 150 characters!</p>
                     )}
                 </div>
-
-                {/* errors will return when field validation fails  */}
                 {errors.exampleRequired && <span>This field is required</span>}
 
-                <input type="submit" />
+                <button type="submit"  onClick={() => {setModalState(true)}}>Place order</button>
             </form>
+        </div>
+        {modalState && <OrderModal closeModalProp={setModalState}/>}
         </div>
   )
 };

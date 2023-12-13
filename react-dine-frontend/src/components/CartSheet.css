@@ -9,3 +9,8 @@
 button {
     margin: 5px;
 }
+
+.cartImg {
+    max-width: 100px;
+    border-radius: 50%;
+}

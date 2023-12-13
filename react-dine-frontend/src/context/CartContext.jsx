@@ -10,7 +10,7 @@ export const useCart = () => {
 
 // cartProvider component that wraps the entire application
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []);
 
   const addToCart = (dish) => {
     const existingItemIndex = cartItems.findIndex((item) => item.id === dish.id);
@@ -63,14 +63,21 @@ export const CartProvider = ({ children }) => {
     return totalItems;
   };
 
-
   useEffect(() => {
-    console.log(cartItems); // This will log the updated state after the component re-renders
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // You can add more functions for editing, removing items, etc.
+  useEffect(() => {
+    const cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+      setCartItems(JSON.parse(cartItems));
+    }
+  }, []);
 
-  // Provide the cart state and functions through the context
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
+
   return (
     <CartContext.Provider value={{
       cartItems,
