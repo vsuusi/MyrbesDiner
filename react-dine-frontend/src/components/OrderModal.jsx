@@ -4,18 +4,18 @@ import './OrderModal.css'
 const OrderModal = ({closeModalProp}) => {
 
     return (
-        <div className="modal-bg">
-            <div className="modal-container">
-                <div className="modal-title">
+        <div className="order-modal-bg">
+            <div className="order-modal-container">
+                <div className="order-modal-title">
                     <h3>Order complete!</h3>
                 </div>
-                <div className="modal-body">
-                    <p> Your order has been completed succesfully!</p>
+                <div className="order-modal-body">
+                    <p> Your order has been placed succesfully!</p>
                 </div>
-                <div className="modal-footer">
-                    
+                <div className="order-modal-footer">
+                    <Link to="/">
                         <button onClick={() => {closeModalProp(false)}}>Return to main page</button>
-                    
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-.order-modal-bg {
+.cart-modal-bg {
     top: 0;
     left: 0;
     width: 100vw;
@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.order-modal-container {
+.cart-modal-container {
     width: 400px;
     height: 300px;
     background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
@@ -21,5 +21,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 25px;   
+    padding: 30px;
+    padding-bottom: 120px;   
+}
+
+.cart-modal-list-item {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
 }
