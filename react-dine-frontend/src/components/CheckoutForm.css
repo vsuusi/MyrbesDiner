@@ -1,0 +1,39 @@
+.checkoutform {
+    background-color: rgb(209, 137, 55);
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    padding: 5px;
+    width: 400px;
+}
+
+.errorMsg {
+    max-width: 350px;
+    color: #f21e08;
+    padding: 2px 0;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.form-control, .form-control-spec {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+}
+
+.form-control-spec {
+    height: 80px;
+    resize: none;
+    padding-bottom: 25px;
+}
+
+.form-control label, .form-control-spec label {
+    display: flex;
+    align-items: start;
+}
+
+textarea {
+    resize: none;
+}
+
