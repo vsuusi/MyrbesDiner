@@ -13,7 +13,7 @@ const Header = () => {
             </Link>
             <div className="cartandtotal">
                 <Link to={`/cart`}>
-                    <ShoppingCart size={32}/>
+                    <ShoppingCart size={45}/>
                 </Link>
                 <div className="totalnumber">
                     <p>{cartTotalItems()}</p>
