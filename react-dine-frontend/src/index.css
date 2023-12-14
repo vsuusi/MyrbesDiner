@@ -1,7 +1,9 @@
 :root {
     color: #ffc93c;
     background-image: url(./images/project-bg-v5.jpg);
-    background-size:contain;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+
     font-family: 'Raleway', sans-serif;
 
     --black: #1a1a1a;
@@ -10,11 +12,13 @@
     --orange: #ff9a3c;
     --yellow: #ffc93c;
 
-  
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
+  ul {
+    list-style: none;
+  }
 
   a {
     color: var(--yellow);
@@ -24,7 +28,6 @@
   a:hover {
     color: #c99a24
   }
-  
   
   button {
     color: var(--yellow);
@@ -39,9 +42,11 @@
     transition: border-color 0.25s;
     font-family: 'Pacifico', cursive;
   }
+
   button:hover {
     border-color: #646cff;
   }
+
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;

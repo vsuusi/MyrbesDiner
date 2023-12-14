@@ -1,6 +1,9 @@
+
 .footer {
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-    left: 50px;
+    color: var(--black);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 150px;
+    height: 2.5rem;
   }

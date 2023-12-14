@@ -7,10 +7,7 @@ const OrderModal = ({closeModalProp}) => {
         <div className="order-modal-bg">
             <div className="order-modal-container">
                 <div className="order-modal-title">
-                    <h3>Order complete!</h3>
-                </div>
-                <div className="order-modal-body">
-                    <p> Your order has been placed succesfully!</p>
+                    <h3>Your order has been placed succesfully!✅</h3>
                 </div>
                 <div className="order-modal-footer">
                     <Link to="/">

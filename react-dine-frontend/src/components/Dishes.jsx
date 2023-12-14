@@ -41,7 +41,7 @@ const Dishes = () => {
     };
 
     return (           
-        <ul>
+        <ul className="dish-container">
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -50,23 +50,23 @@ const Dishes = () => {
             />
             {dishes.map(dish => (
                 <li key={dish.id}>
-                    <div className="dishdiv">
-                        <div className="dishdiv-front">
-                            <img className="img-front" 
+                    <div className="dish-card">
+                        <div className="dish-card-front">
+                            <img className="dish-img-front" 
                                  src={`http://localhost:5000/${dish.image}`} 
                                  alt={dish.name}/>
                             <h4>{dish.name}</h4>
                             <p>{dish.price}€</p>
                         </div>
-                        <div className="dishdiv-back">
-                            {/* ADD IMAGE HERE???? */}
+                        <div className="dish-card-back">
                             <h3>{dish.name}</h3>
                             <p>{dish.description}</p>
                             <h4>{dish.price}€</h4>
-                            <button onClick={() => addToCartHandler(dish)}
-                                    disabled={isButtonDisabled}
-                            >+ Add to Cart</button>
-                            
+                            <button 
+                                onClick={() => addToCartHandler(dish)}
+                                disabled={isButtonDisabled}>
+                                + Add to Cart
+                            </button>
                         </div>
                     </div>
                 </li>

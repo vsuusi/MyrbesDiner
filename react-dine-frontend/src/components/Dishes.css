@@ -1,17 +1,17 @@
 
-ul {
+.dish-container {
+    padding-top: 110px;
     position: relative;
-    list-style: none;
     display: flex;
     justify-content:flex-start;
     flex-wrap: wrap;
 }
 
-.dishdiv {
+.dish-card {
     position: relative;
     text-align: center;
     max-width: 300px;
-    margin: 2%;
+    margin: 3%;
     border: 2px solid black;
     border-radius: 10px;
     background-color: var(--dark);
@@ -20,12 +20,12 @@ ul {
     transition: all 0.8s ease; 
 }
 
-.dishdiv-front {
+.dish-card-front {
     position: relative;
     backface-visibility: hidden;
 }
 
-.dishdiv-back {
+.dish-card-back {
     position: absolute;
     backface-visibility: hidden;
     transform: rotateY(180deg);
@@ -34,20 +34,12 @@ ul {
     height: 100%;
 }
 
-.dishdiv:hover {
+.dish-card:hover {
     transform: rotateY(180deg);
 }
 
-.img-front {
+.dish-img-front {
     max-width: 100%;
-    height: auto;
-}
-
-.img-back{
-    position: relative;
-    z-index: -1;
-    opacity: 30%;
-    width: 105%;
     height: auto;
 }
 

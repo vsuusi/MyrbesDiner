@@ -2,9 +2,9 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import OrderModal from "../components/OrderModal";
 import './CheckoutForm.css'
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CheckoutForm = () => {
@@ -66,7 +66,7 @@ const CheckoutForm = () => {
                 theme="light"
             />
             <ul>
-                <div className="checkoutsummary">
+                <div className="checkout-summary">
                     {cartItems.map((item, index) => (
                         <li key={index}>
                         <div>
@@ -83,7 +83,7 @@ const CheckoutForm = () => {
             </ul>
 
 
-            <div className="checkoutform">
+            <div className="checkout-form">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">
                         <label>First Name:</label>
@@ -146,7 +146,7 @@ const CheckoutForm = () => {
                     </div>
                     {errors.exampleRequired && <span>This field is required</span>}
 
-                    <button type="submit">Place order</button>
+                    <button className="submit-button" type="submit">Place order!</button>
                 </form>
             </div>
             {modalState && <OrderModal closeModalProp={setModalState}/>}

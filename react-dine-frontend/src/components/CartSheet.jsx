@@ -30,7 +30,7 @@ const CartSheet = () => {
                 theme="light"/>
        
         <div className='cart-item-container'>
-            {cartItems.length===0 ? <h3 className='cart-empty-title'>Cart is empty</h3> : 
+            {cartItems.length===0 ? <h2 className='cart-empty-title'>Cart is empty</h2> : 
             <ul>
                 {cartItems.map((item, index) => (
                 <li key={index}>
@@ -46,9 +46,9 @@ const CartSheet = () => {
                     </div>
                 </li>
                 ))}
-                <h2 className="cart-total">Total: {cartTotalPrice().toFixed(2)}€</h2>
             </ul>}
         </div>
+        {cartItems.length !== 0 && <h2 className="cart-total">Total: {cartTotalPrice().toFixed(2)}€</h2>}
         <div className="cart-footer">
             <Link to="/"><button>Continue Shopping</button></Link>
             <button onClick={() => checkoutHandler()}>Checkout</button>

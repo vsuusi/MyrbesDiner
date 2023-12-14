@@ -1,9 +1,11 @@
-
+import './Loader.css'
 
 const Loader = () => {
     return(
-        <h2>Fetching data...</h2>
-        /* needs some visual improvement...*/
+        <div className="loader">
+            <h2>Fetching data...</h2>
+            <h3>Try refreshing the page.</h3>
+        </div>
     )
 }
 

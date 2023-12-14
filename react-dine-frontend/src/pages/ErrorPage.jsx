@@ -2,13 +2,17 @@ import Header from "../components/Header";
 
 const ErrorPage = () => {
 
+    const errorStyles = {
+        padding: '200px 0',
+        color: 'var(--black)'
+    };
+
     return(
-        <>
+        <div style={errorStyles}>
             <Header/>   
-            <h2>Oops! Something went wrong!</h2>
-            <img src="https://thumbs.dreamstime.com/z/confused-businessman-white-background-unsure-afro-american-manager-giving-i-don-t-know-gesture-98326287.jpg?w=992" width="300" height="200"/>
-            <p>The url you are looking for doesn't exist.</p>
-        </>
+            <h1>Oops! Something went wrong!</h1>
+            <h3>❌The url you are looking for doesn't exist.❌</h3>
+        </div>
     )
 
 };

@@ -23,8 +23,8 @@ const CartModal = ({closeModalProp}) => {
                         </li>
                         ))}
                     </ul>
-                    <h4>Total: {cartTotalPrice().toFixed(2)}€</h4>
                 </div>
+                <h4>Total: {cartTotalPrice().toFixed(2)}€</h4>
                 <div className="cart-modal-footer">
                     <Link to="/checkout">
                         <button onClick={() => {closeModalProp(false)}}>
