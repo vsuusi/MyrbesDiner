@@ -7,17 +7,19 @@ const Header = () => {
     const { cartTotalItems } = useCart();
 
     return (
-        <div className="headercontainer">
-            <Link to={`/`}>
-                <h1> Myrbes Diner </h1>
-            </Link>
-            <div className="cartandtotal">
-                <Link to={`/cart`}>
-                    <ShoppingCart size={45}/>
+        <div className="header-container">
+            <div className="header-title">
+                <Link to={`/`}>
+                <   h1> Myrbes Diner </h1>
                 </Link>
-                <div className="totalnumber">
-                    <p>{cartTotalItems()}</p>
-                </div>
+            </div>
+            <div className="header-cart">
+                <Link to={`/cart`}>
+                    <ShoppingCart size={40}/>
+                </Link>
+            </div>
+            <div className="header-number">
+                    <h4>{cartTotalItems()}</h4>
             </div>
         </div>
     )

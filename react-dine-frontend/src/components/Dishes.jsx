@@ -43,7 +43,7 @@ const Dishes = () => {
     return (           
         <ul>
             <ToastContainer
-                position="top-center"
+                position="top-right"
                 autoClose={2000}
                 limit={2}
                 theme="light"

@@ -1,9 +1,11 @@
+import './CartSheet.css'
+
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-import CartModal from "./CartModal";
-import './CartSheet.css'
+import { Trash } from '@phosphor-icons/react';
 import { ToastContainer, toast } from 'react-toastify';
+import CartModal from "./CartModal";
 import 'react-toastify/dist/ReactToastify.css';
  
 const CartSheet = () => {
@@ -22,12 +24,13 @@ const CartSheet = () => {
     return (
     <>
         <ToastContainer
-                position="top-center"
+                position="top-right"
                 autoClose={2000}
                 limit={2}
                 theme="light"/>
-        <div>
-            {cartItems.length===0 ? <h3>Cart is empty</h3> : 
+       
+        <div className='cart-item-container'>
+            {cartItems.length===0 ? <h3 className='cart-empty-title'>Cart is empty</h3> : 
             <ul>
                 {cartItems.map((item, index) => (
                 <li key={index}>
@@ -36,24 +39,20 @@ const CartSheet = () => {
                         <h4>{item.name}</h4>
                         <p>{item.quantity}</p>
                         <p>{item.price}€</p>
-                    </div>
-                    <div className="countButtons">
-                        <button onClick={() => addToCart(item)}>+</button>
-                        <button onClick={() => removeFromCart(item)}>-</button>
+                        <div className="cart-count-buttons">
+                            <button onClick={() => addToCart(item)}>+</button>
+                            <button onClick={() => removeFromCart(item)}>-</button>
+                        </div>
                     </div>
                 </li>
                 ))}
-                <h4>Total: {cartTotalPrice().toFixed(2)}€</h4>
+                <h2 className="cart-total">Total: {cartTotalPrice().toFixed(2)}€</h2>
             </ul>}
-            <div>
-                <Link to="/">
-                    <button>Continue Shopping</button>
-                </Link>
-            </div>
-            <button onClick={emptyCart}>Empty Cart</button>
         </div>
-        <div className="checkoutdiv">
-                <button onClick={() => checkoutHandler()}>Checkout</button>
+        <div className="cart-footer">
+            <Link to="/"><button>Continue Shopping</button></Link>
+            <button onClick={() => checkoutHandler()}>Checkout</button>
+            <button onClick={emptyCart}>Empty cart <Trash size={28}/></button>
         </div>
         {modalState && <CartModal closeModalProp={setModalState}/>}
     </>
