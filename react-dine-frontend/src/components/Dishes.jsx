@@ -13,6 +13,9 @@ const Dishes = () => {
     const { addToCart } = useCart();
 
     const addToCartHandler = (dish) => {
+
+        console.log("dish image: " + dish.image);
+
         addToCart(dish);
         toast.success(dish.name + " added to cart!")
         setIsButtonDisabled(true);
@@ -53,7 +56,7 @@ const Dishes = () => {
                     <div className="dish-card">
                         <div className="dish-card-front">
                             <img className="dish-img-front" 
-                                 src={`images/${dish.image}`} 
+                                 src={`https://myrbes-diner-express-backend.onrender.com/${dish.image}`}
                                  alt={dish.name}/>
                             <h4>{dish.name}</h4>
                             <p>{dish.price}€</p>

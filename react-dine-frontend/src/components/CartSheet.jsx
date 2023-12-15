@@ -13,6 +13,7 @@ const CartSheet = () => {
     const [modalState, setModalState] = useState(false);
 
     const checkoutHandler = () => {
+        console.log(cartItems);
         if (cartItems.length === 0){
             toast.error("Your cart is empty!")
         } 
@@ -35,7 +36,7 @@ const CartSheet = () => {
                 {cartItems.map((item, index) => (
                 <li key={index}>
                     <div className="cartItemDiv">
-                        <img className="cartImg" src={`images/${item.image}`}/>
+                        <img className="cartImg" src={`https://myrbes-diner-express-backend.onrender.com/${item.image}`}/>
                         <h4>{item.name}</h4>
                         <p>{item.quantity}</p>
                         <p>{item.price}€</p>
