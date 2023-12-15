@@ -4,7 +4,7 @@ const Footer = () => {
 
     return(
         <div className="footer">
-                <p>&copy; 2023 Myrbes Diner. All rights reserved.</p>
+                <p>&copy; 2023 Myrbes Diner. Copyright Santeri Uusitalo.</p>
         </div>
     )
 };
