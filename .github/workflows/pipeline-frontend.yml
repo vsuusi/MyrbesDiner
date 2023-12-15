@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Application Tests
+    name: Application Tests and Build
     steps: 
       - name: Fetch Code
         uses: actions/checkout@v4.1.1
