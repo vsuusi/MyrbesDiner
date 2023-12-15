@@ -35,7 +35,7 @@ const CartSheet = () => {
                 {cartItems.map((item, index) => (
                 <li key={index}>
                     <div className="cartItemDiv">
-                        <img className="cartImg" src={item.image}/>
+                        <img className="cartImg" src={`images/${item.image}`}/>
                         <h4>{item.name}</h4>
                         <p>{item.quantity}</p>
                         <p>{item.price}€</p>
