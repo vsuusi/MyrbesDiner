@@ -3,7 +3,7 @@
 
 ### Advanced Web Programming
 
-![Alt text](image.png)
+![Alt text]
 
 ## Project
 

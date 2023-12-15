@@ -1,0 +1,36 @@
+name: Frontend CI/CD
+
+on: 
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Application Tests
+    steps: 
+      - name: Fetch Code
+        uses: actions/checkout@v4.1.1
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 18
+        
+      - name: Install Dependencies and Run Tests
+        run: |
+          cd react-dine-frontend
+          npm install
+          npm run test:ci
+
+      - name: Make Production Build
+        run: | 
+          cd react-dine-frontend
+          npm run build
+
+      - name: Archive Production Build Files
+        uses: actions/upload-artifact@v3
+        with:
+          name: production_dist
+          path: react-dine-frontend-dist/
+
