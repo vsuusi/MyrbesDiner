@@ -55,10 +55,10 @@ const Dishes = () => {
                 <li key={dish.id}>
                     <div className="dish-card">
                         <div className="dish-card-front">
-                            <div className="blur-load">
-                                <img className="dish-img-front" 
+                            <div className="dish-card-front-blur-load" style={{ backgroundImage: `url('https://myrbes-diner-express-backend.onrender.com/${dish.image_small}')` }}>
+                                <img className="dish-img" 
                                     src={`https://myrbes-diner-express-backend.onrender.com/${dish.image}`}
-                                    alt={dish.name} loading="lazy"/>
+                                    loading="lazy"/>
                             </div>
                             <h4>{dish.name}</h4>
                             <p>{dish.price}€</p>
