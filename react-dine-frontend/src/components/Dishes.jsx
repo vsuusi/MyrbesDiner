@@ -13,17 +13,13 @@ const Dishes = () => {
     const { addToCart } = useCart();
 
     const addToCartHandler = (dish) => {
-
-        console.log("dish image: " + dish.image);
-
         addToCart(dish);
         toast.success(dish.name + " added to cart!")
         setIsButtonDisabled(true);
         setTimeout(() => {
             setIsButtonDisabled(false);
         }, 2000);
-
-    }
+    };
 
     useEffect(() => {
         fetch("https://myrbes-diner-express-backend.onrender.com/api/dishes", {

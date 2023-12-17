@@ -2,9 +2,7 @@ import CheckoutForm from "../components/CheckoutForm";
 
 const CheckoutPage = () => {
     return(
-        <>
-            <CheckoutForm/>
-        </>
+        <CheckoutForm/>
     )
 };
 

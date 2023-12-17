@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CheckoutForm = () => {
     const { cartItems, cartTotalPrice, emptyCart } = useCart();
-    const { register, handleSubmit, formState: { errors },} = useForm();
+    const { register, handleSubmit, formState: { errors }} = useForm();
     const [modalState, setModalState] = useState(false);
 
     const onSubmit = async (data) => {
@@ -46,7 +46,7 @@ const CheckoutForm = () => {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const responseData = await response.json();
-            console.log("Order submitted successfully:", responseData);
+            //console.log("Order submitted successfully:", responseData);
             setModalState(true);
             toast.success("Order successful!");
             emptyCart();
@@ -57,7 +57,6 @@ const CheckoutForm = () => {
       };
 
     return (
-        
         <div className="container">
             <ToastContainer
                 position="top-right"
@@ -81,8 +80,6 @@ const CheckoutForm = () => {
                     </Link>
                 </div>
             </ul>
-
-
             <div className="checkout-form">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">

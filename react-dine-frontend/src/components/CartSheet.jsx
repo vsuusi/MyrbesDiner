@@ -1,5 +1,4 @@
 import './CartSheet.css'
-
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
@@ -13,14 +12,14 @@ const CartSheet = () => {
     const [modalState, setModalState] = useState(false);
 
     const checkoutHandler = () => {
-        console.log(cartItems);
+        //console.log(cartItems);
         if (cartItems.length === 0){
             toast.error("Your cart is empty!")
         } 
         else {
             setModalState(true);
         }
-    }
+    };
 
     return (
     <>
@@ -29,7 +28,6 @@ const CartSheet = () => {
                 autoClose={2000}
                 limit={2}
                 theme="light"/>
-       
         <div className='cart-item-container'>
             {cartItems.length===0 ? <h2 className='cart-empty-title'>Cart is empty</h2> : 
             <ul>
@@ -49,7 +47,9 @@ const CartSheet = () => {
                 ))}
             </ul>}
         </div>
+
         {cartItems.length !== 0 && <h2 className="cart-total">Total: {cartTotalPrice().toFixed(2)}€</h2>}
+        
         <div className="cart-footer">
             <Link to="/"><button>Continue Shopping</button></Link>
             <button onClick={() => checkoutHandler()}>Checkout</button>

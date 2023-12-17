@@ -47,10 +47,10 @@
     color: var(--yellow);
     padding: 0 8px;
     margin: 8px 0;
+    margin-right: 30px;
     border-radius: 20px;
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     gap: 10px;
-    
 }

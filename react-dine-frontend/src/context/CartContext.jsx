@@ -74,9 +74,11 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
+  // log cartItems whenever their state changes
+  /*
   useEffect(() => {
     console.log(cartItems);
-  }, [cartItems]);
+  }, [cartItems]); */
 
   return (
     <CartContext.Provider value={{

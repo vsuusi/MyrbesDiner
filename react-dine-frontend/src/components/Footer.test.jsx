@@ -9,5 +9,5 @@ describe("Footer component", () => {
 
         const FooterElement = screen.getByText("Myrbes Diner", {exact: false});
         expect(FooterElement).toBeInTheDocument();
-    })
-})
+    });
+});
