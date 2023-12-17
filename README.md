@@ -1,14 +1,12 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/x2BvhCig)
-# Final Project
-
-### Advanced Web Programming
-
-![Alt text]
-
-## Project
-
-ReactDine – Your Digital Gateway to React Diner’s Kitchen
+# Myrbes Diner
+## The Final Project for the advanced web programming course
+Running live: https://myrbes-diner.onrender.com
+May take up to a minute to load, because of the free tier of the hosting.
 
 ## Project Description
+Myrbes Diner is a online ordering system, designed to provide a seamless and interactive way for customers to view the menu, create food orders, and enjoy a user-friendly checkout process. Build with React, this application offers a rich, dynamic user experience. 
 
-ReactDine is a dedicated online ordering system for the React Diner, designed to provide a seamless and interactive way for customers to view the menu, create food orders, and enjoy a user-friendly checkout process. Built with React, this application will offer a rich, dynamic user experience with an emphasis on the unique branding and offerings of React Diner.
+## ToDo
+- Media Queries for different screen sizes
+- Containerizing
+- Improve CI/CD
