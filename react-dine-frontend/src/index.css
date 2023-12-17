@@ -8,9 +8,12 @@
 
     --black: #1a1a1a;
     --dark: #155263;
+    --darklinear: linear-gradient(15deg,rgb(26, 26, 26),rgb(21, 82, 99));
     --orange-neon: #ff6f3c;
     --orange: #ff9a3c;
     --yellow: #ffc93c;
+
+    --shadow-1: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

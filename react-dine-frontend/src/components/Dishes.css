@@ -17,9 +17,10 @@
     margin: 3px;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: var(--dark);
+    background: var(--darklinear);
     transform-style: preserve-3d;
     transition: all 0.8s ease; 
+    box-shadow: var(--shadow-1);
 }
 
 .dish-card-front {

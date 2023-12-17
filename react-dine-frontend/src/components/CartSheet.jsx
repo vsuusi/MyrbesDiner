@@ -33,7 +33,7 @@ const CartSheet = () => {
             <ul>
                 {cartItems.map((item, index) => (
                 <li key={index}>
-                    <div className="cartItemDiv">
+                    <div className="cart-item">
                         <img className="cartImg" src={`https://myrbes-diner-express-backend.onrender.com/${item.image}`}/>
                         <h4>{item.name}</h4>
                         <p>{item.quantity}</p>
