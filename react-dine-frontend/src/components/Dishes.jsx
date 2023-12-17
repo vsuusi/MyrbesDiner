@@ -55,9 +55,11 @@ const Dishes = () => {
                 <li key={dish.id}>
                     <div className="dish-card">
                         <div className="dish-card-front">
-                            <img className="dish-img-front" 
-                                 src={`https://myrbes-diner-express-backend.onrender.com/${dish.image}`}
-                                 alt={dish.name}/>
+                            <div className="blur-load">
+                                <img className="dish-img-front" 
+                                    src={`https://myrbes-diner-express-backend.onrender.com/${dish.image}`}
+                                    alt={dish.name} loading="lazy"/>
+                            </div>
                             <h4>{dish.name}</h4>
                             <p>{dish.price}€</p>
                         </div>
