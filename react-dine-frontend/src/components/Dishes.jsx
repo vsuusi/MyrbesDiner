@@ -44,7 +44,7 @@ const Dishes = () => {
     };
 
     return (           
-        <ul className="dish-container">
+        <ul className="dish-allcards-container">
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -53,25 +53,27 @@ const Dishes = () => {
             />
             {dishes.map(dish => (
                 <li key={dish.id}>
-                    <div className="dish-card">
-                        <div className="dish-card-front">
-                            <div className="dish-card-front-blur-load" style={{ backgroundImage: `url('https://myrbes-diner-express-backend.onrender.com/${dish.image_small}')` }}>
-                                <img className="dish-img" 
-                                    src={`https://myrbes-diner-express-backend.onrender.com/${dish.image}`}
-                                    loading="lazy"/>
+                    <div className="dish-singlecard-container">
+                        <div className="dish-card">
+                            <div className="dish-card-front">
+                                <div className="dish-card-front-blur-load" style={{ backgroundImage: `url('https://myrbes-diner-express-backend.onrender.com/${dish.image_small}')` }}>
+                                    <img className="dish-img" 
+                                        src={`https://myrbes-diner-express-backend.onrender.com/${dish.image}`}
+                                        loading="lazy"/>
+                                </div>
+                                <h4>{dish.name}</h4>
+                                <p>{dish.price}€</p>
                             </div>
-                            <h4>{dish.name}</h4>
-                            <p>{dish.price}€</p>
-                        </div>
-                        <div className="dish-card-back">
-                            <h3>{dish.name}</h3>
-                            <p>{dish.description}</p>
-                            <h4>{dish.price}€</h4>
-                            <button 
-                                onClick={() => addToCartHandler(dish)}
-                                disabled={isButtonDisabled}>
-                                + Add to Cart
-                            </button>
+                            <div className="dish-card-back">
+                                <h3>{dish.name}</h3>
+                                <p>{dish.description}</p>
+                                <h4>{dish.price}€</h4>
+                                <button 
+                                    onClick={() => addToCartHandler(dish)}
+                                    disabled={isButtonDisabled}>
+                                    + Add to Cart
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </li>
