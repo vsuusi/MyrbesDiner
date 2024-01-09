@@ -16,6 +16,5 @@ When new code is being pushed to front-end directory, it is ran throught simple 
 Backend is a simple express app that is running on a server. It reads and writes data to JSON and doesn't have a database. The backend was provided by the course instructor, altought I made small tweaks to it.
 
 ## ToDo
-- Media Queries for different screen sizes
 - Containerizing
 - Improve CI/CD
