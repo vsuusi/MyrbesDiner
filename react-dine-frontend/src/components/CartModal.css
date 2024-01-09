@@ -11,7 +11,7 @@
 }
 
 .cart-modal-container {
-    width: 30%;
+    width: 35%;
     height: 55%;
     margin-top: 8%;
     background: linear-gradient(68.6deg, rgb(255, 201, 60) 1.8%, rgb(255, 111, 60) 100.5%);
@@ -64,4 +64,30 @@
 .cart-modal-container::-webkit-scrollbar-track {
     background-color: var(--orange);
     border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+
+    .cart-modal-container {
+        width: 70%;
+        height: 60%;
+        margin-top: 15%;
+    }
+    
+    .cart-modal-title {
+        font-size: 18px;
+    }
+    
+    .cart-modal-list-item {
+        font-size: 16px;
+        padding: 0 10px;
+        margin: 5px 0;
+        margin-right: 20px;
+        gap: 5px;
+    }
+    
+    .cart-modal-container button {
+        box-shadow: var(--shadow-1);
+    }
+    
 }

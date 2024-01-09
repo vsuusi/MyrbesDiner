@@ -45,3 +45,18 @@
 .header-title h1:hover, .header-cart:hover, .header-cart:hover + .header-number {
     transform: scale(1.05);
 }
+
+@media (max-width: 600px) {
+    
+    .header-title {
+        font-size: 18px;
+    }
+    
+    .header-cart {
+        top: 29px;
+    }
+    
+    .header-number {
+        top: 60px;
+    }
+}

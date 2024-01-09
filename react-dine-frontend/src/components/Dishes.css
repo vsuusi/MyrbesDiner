@@ -49,3 +49,19 @@
     background-position: center;
     height: 285px;
 }
+
+@media (max-width: 600px) {
+
+    .dish-allcards-container {
+        padding-top: 80px;
+        margin-right: 25px;
+    }
+
+    .dish-card {
+        position: relative;
+        text-align: center;
+        width: 260px;
+        height: 50%;
+        margin: 3px;
+    }
+}

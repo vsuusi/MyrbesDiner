@@ -52,8 +52,8 @@ const CartSheet = () => {
         
         <div className="cart-footer">
             <Link to="/"><button>Continue Shopping</button></Link>
-            <button onClick={() => checkoutHandler()}>Checkout</button>
-            <button onClick={emptyCart}>Empty cart <Trash size={28}/></button>
+            <button className="cart-footer-checkout" onClick={() => checkoutHandler()}>Checkout</button>
+            <button onClick={emptyCart}><Trash size={24}/></button>
         </div>
         {modalState && <CartModal closeModalProp={setModalState}/>}
     </>
