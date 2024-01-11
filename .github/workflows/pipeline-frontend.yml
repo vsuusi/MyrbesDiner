@@ -31,4 +31,11 @@ jobs:
         with:
           name: production_dist
           path: react-dine-frontend/dist/
-
+          
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    name: Deploy Application to Render
+    steps:
+        - name: Trigger the deploy hook
+          run: curl -X GET ${{ secrets.RENDER_TRIGGER}}
