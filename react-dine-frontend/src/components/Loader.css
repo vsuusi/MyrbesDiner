@@ -2,3 +2,7 @@
     padding-top: 240px;
     color: var(--black);
 }
+
+.loader-animation {
+    margin: 0 auto;
+}
